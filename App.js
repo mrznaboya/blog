@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { BlogProvider } from "./src/context/BlogContext";
+import { Provider } from "./src/context/BlogContext";
 
 import IndexScreen from "./src/screens/IndexScreen";
 
@@ -21,11 +21,11 @@ const MyStack = () => {
 
 const App = () => {
   return (
-    <BlogProvider>
+    <Provider>
       <NavigationContainer>
         <MyStack />
       </NavigationContainer>
-    </BlogProvider>
+    </Provider>
   );
 };
 
