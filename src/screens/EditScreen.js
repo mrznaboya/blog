@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { StyleSheet } from "react-native";
 import { useRoute, useNavigation } from "@react-navigation/native";
-import { Context } from "../context/BlogContext";
 
+import { Context } from "../context/BlogContext";
 import BlogPostForm from "../components/BlogPostForm";
 
 const EditScreen = () => {

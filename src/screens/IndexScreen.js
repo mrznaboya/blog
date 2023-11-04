@@ -6,9 +6,11 @@ import {
   FlatList,
   TouchableOpacity,
 } from "react-native";
-import { Context } from "../context/BlogContext";
-import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+
+import { Feather } from "@expo/vector-icons";
+
+import { Context } from "../context/BlogContext";
 
 const IndexScreen = () => {
   const navigation = useNavigation();

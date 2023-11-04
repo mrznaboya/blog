@@ -3,7 +3,6 @@ import { StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { Context } from "../context/BlogContext";
-
 import BlogPostForm from "../components/BlogPostForm";
 
 const CreateScreen = () => {

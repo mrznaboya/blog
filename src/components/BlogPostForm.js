@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TextInput, Button } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 
 const BlogPostForm = ({ onSubmit, initialValues }) => {
-  const navigation = useNavigation();
   const [title, setTitle] = useState(initialValues.title);
   const [content, setContent] = useState(initialValues.content);
   return (

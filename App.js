@@ -1,12 +1,13 @@
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { Provider } from "./src/context/BlogContext";
+import { TouchableOpacity } from "react-native";
+
 import { Feather } from "@expo/vector-icons";
 
+import { Provider } from "./src/context/BlogContext";
 import IndexScreen from "./src/screens/IndexScreen";
 import ShowScreen from "./src/screens/ShowScreen";
 import CreateScreen from "./src/screens/CreateScreen";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import EditScreen from "./src/screens/EditScreen";
 
 const Stack = createStackNavigator();
