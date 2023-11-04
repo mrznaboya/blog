@@ -13,12 +13,10 @@ import { useNavigation } from "@react-navigation/native";
 
 const IndexScreen = () => {
   const navigation = useNavigation();
-  const { state, addBlogPost, deleteBlogPost } = useContext(Context);
+  const { state, deleteBlogPost } = useContext(Context);
 
   return (
     <View>
-      <Text>Index Screen</Text>
-      <Button title="Add Post" onPress={addBlogPost} />
       <FlatList
         data={state}
         keyExtractor={(blogPost) => blogPost.title}
