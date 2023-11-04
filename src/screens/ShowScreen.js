@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { useRoute } from "@react-navigation/native";
+
 import { Context } from "../context/BlogContext";
 
 const ShowScreen = () => {
@@ -13,6 +14,7 @@ const ShowScreen = () => {
   return (
     <View>
       <Text>{blogPost.title}</Text>
+      <Text>{blogPost.content}</Text>
     </View>
   );
 };

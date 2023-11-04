@@ -7,6 +7,7 @@ import IndexScreen from "./src/screens/IndexScreen";
 import ShowScreen from "./src/screens/ShowScreen";
 import CreateScreen from "./src/screens/CreateScreen";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import EditScreen from "./src/screens/EditScreen";
 
 const Stack = createStackNavigator();
 
@@ -32,8 +33,23 @@ const MyStack = () => {
           ),
         }}
       />
-      <Stack.Screen name="Show Screen" component={ShowScreen} />
+      <Stack.Screen
+        name="Show Screen"
+        component={ShowScreen}
+        options={({ route, navigation }) => ({
+          headerRight: () => (
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("Edit Screen", { id: route.params.id })
+              }
+            >
+              <Feather name="edit" size={30} />
+            </TouchableOpacity>
+          ),
+        })}
+      />
       <Stack.Screen name="Create Screen" component={CreateScreen} />
+      <Stack.Screen name="Edit Screen" component={EditScreen} />
     </Stack.Navigator>
   );
 };

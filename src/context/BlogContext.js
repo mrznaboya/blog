@@ -15,6 +15,10 @@ const blogReducer = (state, action) => {
       return state;
     case "delete_blogpost":
       return state.filter((blogPost) => blogPost.id !== action.payload);
+    case "edit_blogpost":
+      return state.map((blogPost) => {
+        return blogPost.id === action.payload.id ? action.payload : blogPost;
+      });
   }
 };
 
@@ -24,7 +28,9 @@ const addBlogPost = (dispatch) => {
   return (title, content, callback) => {
     // await axios.post('adadaf', title, content)
     dispatch({ type: "add_blogpost", payload: { title, content } });
-    callback();
+    if (callback) {
+      callback();
+    }
     //   try{
     //   await axios.post('adadaf', title, content)
     //   dispatch({ type: "add_blogpost", payload: { title, content } });
@@ -39,8 +45,20 @@ const deleteBlogPost = (dispatch) => {
   };
 };
 
+const editBlogPost = (dispatch) => {
+  return (id, title, content, callback) => {
+    dispatch({
+      type: "edit_blogpost",
+      payload: { id, title, content },
+    });
+    if (callback) {
+      callback();
+    }
+  };
+};
+
 export const { Context, Provider } = createDataContext(
   blogReducer,
-  { addBlogPost, deleteBlogPost },
-  []
+  { addBlogPost, deleteBlogPost, editBlogPost },
+  [{ title: "TEST POST", content: "TEST CONTENT", id: 1 }]
 );
