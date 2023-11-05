@@ -6,7 +6,7 @@ import {
   FlatList,
   TouchableOpacity,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
 
 import { Feather } from "@expo/vector-icons";
 
@@ -15,9 +15,24 @@ import { Context } from "../context/BlogContext";
 const IndexScreen = () => {
   const navigation = useNavigation();
   const { state, deleteBlogPost, getBlogPosts } = useContext(Context);
-  useEffect(() => {
-    getBlogPosts();
-  }, []);
+
+  // useEffect(() => {
+  //   getBlogPosts();
+
+  //   const listener = navigation.addListener("didFocus", () => {
+  //     getBlogPosts();
+  //   });
+
+  //   return () => {
+  //     listener.remove();
+  //   };
+  // }, []);
+  useFocusEffect(
+    React.useCallback(() => {
+      getBlogPosts();
+    }, [])
+  );
+
   return (
     <View>
       <FlatList
