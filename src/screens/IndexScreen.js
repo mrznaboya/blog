@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import {
   View,
   Text,
@@ -14,8 +14,10 @@ import { Context } from "../context/BlogContext";
 
 const IndexScreen = () => {
   const navigation = useNavigation();
-  const { state, deleteBlogPost } = useContext(Context);
-
+  const { state, deleteBlogPost, getBlogPosts } = useContext(Context);
+  useEffect(() => {
+    getBlogPosts();
+  }, []);
   return (
     <View>
       <FlatList
