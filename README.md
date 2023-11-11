@@ -2,14 +2,12 @@
 
 Hey, my dudes! I'm still learning how to create an app. This is a blog app.
 
-I have ignored jsonServer.js in my api folder for security purposes so please supply your own ngrok link.
-
-create src/api folder and then jsonServer.js
+Please supply your own ngrok forwarding address in src/api/jsonServer.js
 
 ```
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "<your ngrok link>",
+  baseURL: "<your ngrok address>",
 });
 ```

@@ -35,4 +35,4 @@ yarn-error.*
 *.tsbuildinfo
 
 # ignoring api files
-src/api/jsonServer.js
+# src/api/jsonServer.js
